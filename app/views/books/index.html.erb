@@ -1,0 +1,15 @@
+<div class="container">
+  <%= link_to 'Add new book', new_book_path, class: "btn btn-primary" %>
+  <p>List of Books to contribute</p>
+  <div class="panel panel-default">
+    <% @books.each do |book| %>
+      <div class="panel-heading">
+
+        <h3><%= link_to book.title, book_path(book) %></h3>
+      </div>
+      <div class="panel-body">
+        <p><%= book.description %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
