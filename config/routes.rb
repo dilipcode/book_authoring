@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   # Example resource route with more complex sub-resources:
   resources :books do
+    get 'preview', on: :member
     resources :chapters do
       resources :sections
     end

@@ -15,4 +15,14 @@ if Rails.env.development?
   Book.find_or_create_by(title: " Influenced?") do |book|
   book.description="Stop comparing youself with others and start measuring yourself"
   end
+
+  demo_book = Book.find_or_create_by(title: "Demo book")
+  (1..10).each do |i|
+    chapter = demo_book.chapters.find_or_create_by(title: "Chapter #{i}")
+      (1..5).each do |j|
+        section = chapter.sections.find_or_create_by(title: "Section #{i}.#{j}")
+        section.content = "Lorem ipsum fhbjggddffyfyhgkjddg cgchgcghghxgfc xfdthdtchgcaaaawzszxcj;k jbjkbjkbj"
+        section.save!
+      end
+  end
 end

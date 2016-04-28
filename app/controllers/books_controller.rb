@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :fetch_book, only: [:show, :destroy, :edit, :update]
+  before_action :fetch_book, only: [:show, :destroy, :edit, :update, :preview]
 
   def index
     @books = Book.all
@@ -33,11 +33,16 @@ class BooksController < ApplicationController
   end
 
   def show
+
   end
 
   def destroy
     @book.destroy
     redirect_to books_path, notice: "Book #{@book.title} deleted succesfully"
+  end
+
+  def preview
+    @chapters = @book.chapters.includes(:sections)
   end
 
   private

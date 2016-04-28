@@ -4,12 +4,14 @@
   <div class="panel panel-default">
     <% @books.each do |book| %>
       <div class="panel-heading">
-
+        <%= link_to "preview", preview_book_path(book) , class: "btn btn-primary btn-sm pull-right" %>
         <h3><%= link_to book.title, book_path(book) %></h3>
+
       </div>
       <div class="panel-body">
         <p><%= book.description %></p>
       </div>
     <% end %>
+
   </div>
 </div>
